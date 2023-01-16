@@ -1,0 +1,245 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 5; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background: black; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color:rebeccapurple;
+  text-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-right .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#menu{
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Border is the new background */
+  background: black;
+  color:rebeccapurple;
+  text-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+  height:100%;
+}
+li::marker {
+    content: '';
+}
+a {
+  text-decoration: none; /* Отменяем подчеркивание у ссылки */
+}
+#menu li{
+  margin-top:1em;
+  margin-bottom:1em;
+  font-size:18px;
+  /* Rotate from top left corner (not default) */
+  transform: rotate(270deg);
+  letter-spacing: 0.1em;
+}
+#menu li:hover{
+  color: #d59ee0;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #5b3c3c, 0 0 1em blue, 0 0 0.2em blue;
+}
+img{
+  margin-top:0.3em;
+  height:4em;
+  width:6em;
+  border-radius: 5em;
+}
+hr{
+  margin: 1em;
+    color:rebeccapurple;
+  text-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+body{
+  background: black;
+}
+#content{
+  margin-left: 7em;
+  color: white;
+}
+.album_container{
+  padding: 5px;
+  margin: 2em;
+  border-color: rebeccapurple;
+  box-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.track_container{
+  padding: 5px;
+  margin: 2em;
+  border-color: rebeccapurple;
+  box-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.text_container_span{
+    height: 2em;
+    width: 2em;
+  padding-top: 1em;
+}
+.login{
+  margin-left:0.8em;
+  margin-top:0.25em;
+  height:4em;
+  width:4em;
+  border-radius: 5em;
+}
+.small_icon{
+  position: relative;
+vertical-align: middle;
+  height: 2em;
+  width: 2em;
+  border-radius: 5em;
+}
+.site{
+  color: ghostwhite;
+}
+.container_playlists {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  margin: 1em;
+}
+.container_playlists div {
+  padding:1em;
+  color: whitesmoke;
+  border-color: rebeccapurple;
+  box-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+  aspect-ratio: 3;
+  margin:1em;
+  font-size: 14px;
+}
+.playlist_title{
+  color: #5d26c7;
+  text-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+  letter-spacing: 0.3em;
+   font-size: 20px;
+}
+a{
+  color: blue;
+}
+.artist{
+   color: #c6b8e0;
+  text-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+  letter-spacing: 0.15em;
+   font-size: 20px;
+}
+.container {
+    height:2em;
+}
+
+.container ul li {
+    margin-left:20px;
+    float: left;
+}
+
+.container ul {
+    display: block;
+}
+.track_container_item{
+  width:20em;
+  height:20em;
+  padding: 5px;
+  margin-left: 30%;
+  margin-top: 10%;
+  border-color: rebeccapurple;
+  box-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.track_photo{
+  width:7em;
+  height:7em;
+}
+.play_icon{
+    width:10em;
+    height:10em;
+}
+.container_playlist{
+  width:20em;
+  height:20em;
+  overflow: hidden;
+
+}
+.delete{
+  text-align:center;
+  padding: 5px;
+  margin: 5em;
+  border-color: rebeccapurple;
+  box-shadow: 1px 1px 1px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.delete p{
+  font-size:18px;
+}
+
+.button-63 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: Phantomsans, sans-serif;
+  font-size: 18px;
+  line-height: 1em;
+  max-width: 7em;
+  min-width: 3em;
+  padding: 0.5em;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+}
+
+@media (min-width: 3em) {
+  .button-63 {
+    font-size: 18px;
+    min-width: 3em;
+  }
+}

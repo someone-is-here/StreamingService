@@ -1,0 +1,40 @@
+{% extends 'streaming/base.html' %}
+
+{% block content %}
+{% for item in artists %}
+    <div class="album_container">
+         <a href="{{item.website}}" class="artist">{{item.name}}</a>
+        <div>
+          <h5>{{item.country_title}}</h5>
+          <hr>
+          <span>Tour dates: {{item.tour_dates}}</span>
+            <div>
+            <div class="container">
+            <ul>
+                <li>Labels: </li>
+                {% for i in item.labels %}
+                <a href="{{i.label_website}}"><li>{{i.label_title}}</li></a>
+                {% endfor %}
+            </ul>
+                </div>
+             <div class="container">
+            <ul >
+                 <li>Instruments: </li>
+                {% for i in item.instruments %}
+                <li>{{i.instrument_title}}</li>
+                {% endfor %}
+            </ul>
+             </div>
+                 <div class="container">
+            <ul >
+                 <li>Genres: </li>
+                {% for i in item.genres %}
+                <li>{{i.genre_name}}</li>
+                {% endfor %}
+            </ul>
+             </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

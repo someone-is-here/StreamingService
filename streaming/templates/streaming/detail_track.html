@@ -1,0 +1,38 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="track_container_item">
+        <h3>{{item.name}}</h3>
+         <div class="cover" style="text-align:center;">
+        <img alt="" src="{{item.photo.url}}" style="border-radius: 0;" class="track_photo"/>
+                         <h5>{{item.timing|time:"g:i"|lower}}</h5>
+       </div>
+        <div style="text-align: center">
+            <span class="text_container_span">
+            <img src="{% static 'streaming/images/like.jpg'%}" class="small_icon"/>
+            <span class="text_container_span">{{item.likes}}</span>
+            <img src="{% static 'streaming/images/play.jpg'%}" class="small_icon"/>
+            <span  class="text_container_span"> {{item.streaming}}</span>
+            </span>
+        </div>
+                     <div class="container">
+
+      <div class="music-player">
+        <div class="lecteur">
+        <audio class="fc-media" style="width: 100%;">
+         <source src="{% if item.track %}{{item.track.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3"/>
+        </audio>
+
+       </div>
+      </div>
+    {% if user.role.id != 3 and permission %}
+                         <div style="text-align:center;">
+                             <a href="{% url 'tracks' %}">Back</a>
+                             <a href="{% url 'update_track' item.pk%}">Update</a>
+                             <a href="{% url 'delete_track' item.pk%}">Delete</a>
+                         </div>
+                         {% endif %}
+    </div>
+    </div>
+{% endblock %}

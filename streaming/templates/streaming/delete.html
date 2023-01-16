@@ -1,0 +1,13 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <div class="delete">
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    {{ form }}
+    <input type="submit" value="Confirm" class="button-63">
+  </div>
+</form>
+{% endblock %}

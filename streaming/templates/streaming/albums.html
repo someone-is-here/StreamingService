@@ -1,0 +1,10 @@
+{% extends 'streaming/base.html' %}
+
+{% block content %}
+{% for item in albums %}
+    <div class="album_container">
+        <h3><a href="{% url 'detail_album' item.pk%}">{{item.name}}</a></h3>
+        <h5>{{item.release_date}}</h5>
+    </div>
+{% endfor %}
+{% endblock %}

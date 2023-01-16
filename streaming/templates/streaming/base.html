@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'streaming/css/styles.css'%}" rel="stylesheet"/>
+     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelementplayer.min.css" rel="stylesheet"/>
+  <link href="{% static 'streaming/css/track_styles.css' %}" rel="stylesheet"/>
+</head>
+<body>
+
+<header>
+</header>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    {%  if request.user.is_authenticated %}
+      <a href="{% url 'update_user' user.id %}">{{user.login}}</a>
+            {% if user.role.id == 3 %}
+                <a href="{% url 'change_subscription' auth_user %}">Subscription</a>
+        {% endif %}
+        <a href="{% url 'create_playlist' %}">Create playlist</a>
+     {% if user.role.id == 2 %}
+                <a href="{% url 'add_instrument' user.id %}">Add instrument</a>
+                <a href="{% url 'create_track' %}">Add track</a>
+                <a href="{% url 'add_genre' user.id %}">Add genre</a>
+                <a href="{% url 'add_label' user.id %}">Add label</a>
+        {% endif %}
+  <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+  <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+  <a href="#">Contact</a>
+</div>
+
+
+{% block menu%}
+<div id="menu">
+    <a href="{% url 'home'%}"> <img src="{% static 'streaming/images/icon.jpg'%}"></a>
+    <ul>
+        {% for item in menu %}
+        <a href="{% url item.url_name %}"><li>{{item.title}}</li></a>
+            <br>
+        {% endfor %}
+    </ul>
+    <hr>
+     <span onclick="openNav()"><img src="{% static 'streaming/images/login.png'%}" class="login"></a></span>
+</div>
+{% endblock %}
+{% block index %}
+{% endblock %}
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+
+<footer></footer>
+   <script src="{% static 'streaming/js/script.js'%}" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+  <script src="{% static 'streaming/js/track_js.js' %}"></script>
+    <script src="{% static 'streaming/js/register.js' %}"></script>
+</body>
+</html>

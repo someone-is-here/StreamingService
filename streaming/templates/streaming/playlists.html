@@ -1,0 +1,26 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container_playlists">
+{% for item in playlists %}
+    <div>
+        <div>
+        <h3 class="playlist_title">{{item.name}}</h3>
+               <a href="{% url 'add_track_to_playlist' item.id %}">
+            <img src="{% static 'streaming/images/add.jpg'%}" style="height:3.5em;width:3.5em;float:right;"/></a>
+        </div>
+
+        <a href="{% url 'selected_playlist' item.id %}">
+            <img src="{% static 'streaming/images/playlist.jpg'%}" class="play_icon"  style="float:right;"/></a>
+
+        <ul>
+        {% for track in item.tracks%}
+            <a href="{% url 'remove_track_from_playlist' item.id track.id%}"><li>{{track.name}}</li></a>
+         {% endfor %}
+        </ul>
+
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

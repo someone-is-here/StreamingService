@@ -1,0 +1,25 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block content %}
+      {% for error in error_messages %}
+        <p style="color:white;font-size:26px;font-weight:bold;text-shadow:2px 2px 2px rgb(252, 3, 3);">{{error}}</p>
+        {% endfor %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     {{ aform.as_p }}
+     <input type="hidden" name="{{aform.prefix}}" value="Submit" />
+    <div>
+    <div id="register_2" style="visibility: hidden;position:absolute;">
+    {{ bform.as_p }}
+    <input type="submit" name="{{bform.prefix}}" value="Submit" />
+    </div>
+    <div id="register_3" style="visibility: hidden;position:absolute;">
+    {{ cform.as_p }}
+    <input type="submit" name="{{cform.prefix}}" value="Submit" />
+      </div>
+    </div>
+
+</form>
+    </td>
+{% endblock %}

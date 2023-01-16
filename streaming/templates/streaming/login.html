@@ -1,0 +1,12 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="delete">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="button-63">
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block content %}
+{% for item in tracks %}
+    <div class="track_container">
+        <div class="cover" style="float:right;">
+        <img alt="" src="{{item.photo.url}}" style="border-radius: 0;"/>
+       </div>
+        <h3><a href="{% url 'detail_track' item.pk %}">{{item.name}}</a></h3>
+        <span>
+            <h5>{{item.timing|time:"g:i"|lower}}</h5>
+            <span class="text_container_span">
+            <img src="{% static 'streaming/images/like.jpg'%}" class="small_icon"/>
+            <span class="text_container_span">{{item.likes}}</span>
+            <img src="{% static 'streaming/images/play.jpg'%}" class="small_icon"/>
+            <span  class="text_container_span"> {{item.streaming}}</span>
+            </span>
+        </span>
+        <div class="container">
+            <div class="music-player">
+            <div class="lecteur">
+            <audio class="fc-media" style="width: 100%;">
+            <source src="{% if item.track %}{{item.track.url}} {% else %} {{item.audio_link}} {% endif %}" type="audio/mp3"/>
+        </audio>
+
+       </div>
+      </div>
+    </div>
+    </div>
+{% endfor %}
+{% endblock %}

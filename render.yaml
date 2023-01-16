@@ -1,0 +1,20 @@
+databases:
+  - name: StreamingServiceDB
+    databaseName: StreamingServiceDB
+    user: StreamingServiceDB
+
+services:
+  - type: web
+    name: streaming_service
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn streaming_service.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: StreamingServiceDB
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
