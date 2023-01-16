@@ -77,10 +77,8 @@ WSGI_APPLICATION = 'streaming_service.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'StreamingServiceDB',
-    }
+     'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/streaming',
+                                       conn_max_age=600)
 }
 
 # Password validation
